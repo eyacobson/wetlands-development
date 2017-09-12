@@ -61813,7 +61813,12 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
        labelInterpolationFnc: function(value, index) {
          return index % 2 === 0 ? value : null;
        }
-     }
+     },
+	 axisY: {
+		 labelInterpolationFnc: function(value, index) {
+			 return '$' + value.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,'); //Makes y-axis labels more readable as currency
+		 }
+	 }
    });        
 
 
@@ -61834,7 +61839,12 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
          //console.log('series', this);
          return index % 1 === 0 ? value : null;
        }
-     } 
+     },
+	 axisY: {
+		 labelInterpolationFnc: function(value, index) {
+			 return '$' + value.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,'); //Makes y-axis labels more readable as currency
+		 }
+	 }
    });
 
 
