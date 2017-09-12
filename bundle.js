@@ -62033,7 +62033,12 @@ function summarizeWetlands (ractive, inKeyPath, outKeyPath, ibiScoreField, acres
       labelInterpolationFnc: function(value, index) {
         return index % 1 === 0 ? value : null;
       }
-    }
+    },
+	axisY: {
+		labelInterpolationFnc: function(value, index) {
+			return value.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+		}
+	}
   });
 
   
