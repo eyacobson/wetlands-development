@@ -61810,8 +61810,12 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
        left: 30
      },
      axisX: {
-       labelInterpolationFnc: function(value, index) {
-         return index % 2 === 0 ? value : null;
+       labelInterpolationFnc: function(value, index, labels) {	//Displays every other x-axis label, but only when there's 10 or more labels
+		 if (labels.length >= 10) {
+			 return index % 2 === 0 ? value : null;
+		 } else {
+			 return value;
+		 }
        }
      },
 	 axisY: {
