@@ -222,7 +222,7 @@
                   <li><span class="legend-block enhanced"></span>Enhanced ({{sumBy(derivedData.overallSummary, 'enhancedSum')}} ac) </li>
                   <li><span class="legend-block restored"></span>Restored ({{sumBy(derivedData.overallSummary, 'restoredSum')}} ac)</li>                  
               </div>
-              <p class="small"><em>* Additional acres conserved but lacking a date  are not shown on graph. See table for details.</em></p>
+              <p class="small"><em>* Additional acres conserved but lacking a date are not shown on graph. See table for details.</em></p>
             </div>
 
             <div role="tabpanel" id="graph-overall-cumul-tab" class="tab-pane graph-tab">
@@ -363,11 +363,13 @@
           <div role="tabpanel" id="graph-funding-peryear-tab" class="tab-pane graph-tab active">            
             <h4>Funding per Year</h4>
             <div id="graph-funding-peryear" class="chart  ct-major-twelfth"></div>
+			<p class="small"><em>* Funding for projects lacking a date is not shown on graph. See table for details.</em></p>
           </div>
 
           <div role="tabpanel" id="graph-funding-cumul-tab" class="tab-pane graph-tab">            
             <h4>Cumulative Funding</h4>
             <div id="graph-funding-cumul" class="chart  ct-major-twelfth"></div>
+			<p class="small"><em>* Funding for projects lacking a date is not shown on graph. See table for details.</em></p>
           </div>
         </div>
 
@@ -574,6 +576,6 @@
 <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
 <script src="https://unpkg.com/esri-leaflet@2.0.6"></script>
 <!-- <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.standalone.js'></script>
- --><script type="text/javascript" src="bundle.min.js"></script>    
+ --><script type="text/javascript" src="bundle.js"></script>    
 </body>
 </html>
