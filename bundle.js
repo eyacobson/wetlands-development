@@ -61730,7 +61730,34 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
   // var enha = _.map(overallData, 'enhancedSum');
   // var rest = _.map(overallData, 'restoredSum');
 
-  var year = _(overallData).map('year').dropRight(1).value();
+  var allYears = _(overallData).map('year').value();	/* Only omit the last item in arrays that get fed to charts if that item corresponds to 'N/A' years */
+  if (allYears[allYears.length - 1] === 'N/A') {
+	  var year = _(overallData).map('year').dropRight(1).value();
+	  var prot = _(overallData).map('protectedSum').dropRight(1).value();
+	  var enha = _(overallData).map('enhancedSum').dropRight(1).value();
+	  var rest = _(overallData).map('restoredSum').dropRight(1).value();
+	  var fund = _(overallData).map('fundingSum').dropRight(1).value();
+
+	  var yearLine = _(overallData).map('year').dropRight(1).value();
+	  var protCumul = _(overallData).map('protectedCumul').dropRight(1).value();
+	  var enhaCumul = _(overallData).map('enhancedCumul').dropRight(1).value();
+	  var restCumul = _(overallData).map('restoredCumul').dropRight(1).value();
+	  var fundCumul = _(overallData).map('fundingCumul').dropRight(1).value();
+  } else {
+	  var year = _(overallData).map('year').value();
+	  var prot = _(overallData).map('protectedSum').value();
+	  var enha = _(overallData).map('enhancedSum').value();
+	  var rest = _(overallData).map('restoredSum').value();
+	  var fund = _(overallData).map('fundingSum').value();
+	  
+	  var yearLine = _(overallData).map('year').value();
+	  var protCumul = _(overallData).map('protectedCumul').value();
+	  var enhaCumul = _(overallData).map('enhancedCumul').value();
+	  var restCumul = _(overallData).map('restoredCumul').value();
+	  var fundCumul = _(overallData).map('fundingCumul').value();
+  }
+  
+  /*var year = _(overallData).map('year').dropRight(1).value();
   var prot = _(overallData).map('protectedSum').dropRight(1).value();
   var enha = _(overallData).map('enhancedSum').dropRight(1).value();
   var rest = _(overallData).map('restoredSum').dropRight(1).value();
@@ -61740,7 +61767,7 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
   var protCumul = _(overallData).map('protectedCumul').dropRight(1).value();
   var enhaCumul = _(overallData).map('enhancedCumul').dropRight(1).value();
   var restCumul = _(overallData).map('restoredCumul').dropRight(1).value();
-  var fundCumul = _(overallData).map('fundingCumul').dropRight(1).value();
+  var fundCumul = _(overallData).map('fundingCumul').dropRight(1).value();*/
 
   // Miles per year bar chart
 
