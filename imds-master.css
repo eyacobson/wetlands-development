@@ -27,9 +27,10 @@ span.amp {font-family: "Goudy Old Style", "Palatino", "Constantia", serif; font-
 #map {height: 100%; width: 100%;}
 div#button-nav {float: left; margin: 10px 0 15px; height: 32px; width: 100%;}
 
-#results {background: #EEF2F5; height: 100vh; overflow: scroll; padding: 0px 10px 20px;}
+#results {background: #EEF2F5; height: 100vh; padding: 0px 10px 20px;}
 #results-header {background: #eef2f5; z-index: 999; width: inherit; height: 140px; position: fixed; float: left; padding-top: 20px;}
-.tab-pane {margin-top: 180px; margin-top: 135px;}
+/*.tab-pane {margin-top: 180px; margin-top: 135px;}*/
+#charts-container {overflow: scroll; margin-top: 145px; height: 81vh;}
 
 #filter-summary {width: 100%; border: 1px solid #ccc; border-radius: 3px; padding: 5px;}
 
@@ -191,7 +192,7 @@ a.leaflet-popup-close-button:hover {background: transparent; color: black;}
 .chart {min-height: 300px;}
 #graph-wetlands-ibi.chart {height: 200px; min-height: 200px;}
 .ct-label {font-size: 1.2rem; color: rgba(0,0,0, .7);}
-#graph-funding-peryear .ct-label, #graph-funding-cumul .ct-label, #graph-wetlands-ibi .ct-label {font-size: 1rem;} /* Shrink font size of axis labels slightly, so the comma-formatted numbers actually fit */
+#graph-funding-peryear .ct-label, #graph-funding-cumul .ct-label {font-size: 1rem;} /* Shrink font size of axis labels slightly on funding graphs, so that the currency formatting fits */
 /*.ct-label.ct-horizontal.ct-end {position: relative; display: block; white-space: nowrap; transform: rotate(-90deg); transform-origin: 100% 0;}*/ /* For rotating x-axis labels */
 .ct-series-a .ct-point, .ct-series-a .ct-line, .ct-series-a .ct-bar, .ct-series-a .ct-slice-donut {stroke: #329096; stroke: #c55227; stroke: #923411;}
 .graph-meta {float: left; width: 100%; border-bottom: 0px solid #ccc; }
@@ -260,7 +261,7 @@ span.legend-block.restored {width: 20px; height: 12px; float: left; margin: 3px 
 	#map  {
 		height: 40vh;
 	}
-  #results-header {background: #eef2f5; z-index: 999; width: inherit; position: relative; float: left; padding-top: 10px; height: auto;}
+  #results-header {background: #eef2f5; z-index: 999; position: relative; float: left; padding-top: 10px; height: auto;}
   #results-header p {margin-bottom: 0;}
   div#button-nav {margin-bottom: 5px;}
   .tab-pane {margin-top: 10px;}
