@@ -192,7 +192,7 @@ a.leaflet-popup-close-button:hover {background: transparent; color: black;}
 .chart {min-height: 300px;}
 #graph-wetlands-ibi.chart {height: 200px; min-height: 200px;}
 .ct-label {font-size: 1.2rem; color: rgba(0,0,0, .7);}
-#graph-funding-peryear .ct-label, #graph-funding-cumul .ct-label {font-size: 1rem;} /* Shrink font size of axis labels slightly on funding graphs, so that the currency formatting fits */
+#graph-funding-peryear .ct-label, #graph-funding-cumul .ct-label, #graph-wetlands-ibi .ct-label {font-size: 1rem;} /* Shrink font size of axis labels slightly on funding graphs, so that the currency formatting fits */
 /*.ct-label.ct-horizontal.ct-end {position: relative; display: block; white-space: nowrap; transform: rotate(-90deg); transform-origin: 100% 0;}*/ /* For rotating x-axis labels */
 .ct-series-a .ct-point, .ct-series-a .ct-line, .ct-series-a .ct-bar, .ct-series-a .ct-slice-donut {stroke: #329096; stroke: #c55227; stroke: #923411;}
 .graph-meta {float: left; width: 100%; border-bottom: 0px solid #ccc; }
