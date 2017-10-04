@@ -61866,11 +61866,16 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
        left: 30
      },
      axisX: {
-       labelInterpolationFnc: function(value, index) {
+       labelInterpolationFnc: function(value, index, labels) {
          //console.log('series', this);
-         return index % 1 === 0 ? value : null;
-       }
-     },
+         //return index % 1 === 0 ? value : null;
+		 if (labels.length >= 10) {
+			 return index % 2 === 0 ? value : null;
+		 } else {
+			 return value;
+		 }
+		 }
+       },
 	 axisY: {
 		 labelInterpolationFnc: function(value, index) {
 			 return '$' + value.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,'); //Makes y-axis labels more readable as currency
