@@ -222,7 +222,7 @@
                   <li><span class="legend-block enhanced"></span>Enhanced ({{sumBy(derivedData.overallSummary, 'enhancedSum')}} ac) </li>
                   <li><span class="legend-block restored"></span>Restored ({{sumBy(derivedData.overallSummary, 'restoredSum')}} ac)</li>                  
               </div>
-              <p class="small"><em>* Additional acres conserved but lacking a date are not shown on graph. See table for details.</em></p>
+              <p class="small"><em>* Data source: Great Lakes Restoration Database (GLRD).<br>Additional acres conserved but lacking a date are not shown on graph. See table for details.</em></p>
             </div>
 
             <div role="tabpanel" id="graph-overall-cumul-tab" class="tab-pane graph-tab">
@@ -239,7 +239,7 @@
                   <li><span class="legend-block enhanced"></span>Enhanced ({{sumBy(derivedData.overallSummary, 'enhancedSum')}} ac) </li>
                   <li><span class="legend-block restored"></span>Restored ({{sumBy(derivedData.overallSummary, 'restoredSum')}} ac)</li>                  
               </div>
-              <p class="small"><em>* Additional acres conserved but lacking a date  are not shown on graph. See table for details.</em></p>
+              <p class="small"><em>* Data source: Great Lakes Restoration Database (GLRD).<br>Additional acres conserved but lacking a date  are not shown on graph. See table for details.</em></p>
 
             </div>
 
@@ -311,9 +311,10 @@
               <div class="graph-overall-xaxis">
                 <span>Habitat Quality</span>
               </div>
-			  <p>
-				<a target="_blank" href="https://www.blueaccounting.org/link/great-lakes-coastal-wetlands-monitoring-program-data">Vegetation IBIs</a>
-				measure the health of a coastal wetland based on plant assemblages.
+			  <p class="small">
+				<em>* Data source: <a target="_blank" href="https://www.blueaccounting.org/link/great-lakes-coastal-wetlands-monitoring-program-data">Great Lakes Coastal Wetland Monitoring Program (GLCWMP).</a><br>
+				Vegetation IBIs measure the health of a coastal wetland based on plant assemblages. The vegetation IBI data, along with other indices of biological integrity (IBIs), have been gathered for
+				selected wetlands across the Great Lakes basin and are unrelated to projects funded by GLRI and other investments.</em>
 			  </p>
 
           </div>
@@ -363,13 +364,13 @@
           <div role="tabpanel" id="graph-funding-peryear-tab" class="tab-pane graph-tab active">            
             <h4>Funding per Year</h4>
             <div id="graph-funding-peryear" class="chart  ct-major-twelfth"></div>
-			<p class="small"><em>* Funding for projects lacking a date is not shown on graph. See table for details.</em></p>
+			<p class="small"><em>* Data source: Great Lakes Restoration Database (GLRD).<br>Funding for projects lacking a date is not shown on graph. See table for details.</em></p>
           </div>
 
           <div role="tabpanel" id="graph-funding-cumul-tab" class="tab-pane graph-tab">            
             <h4>Cumulative Funding</h4>
             <div id="graph-funding-cumul" class="chart  ct-major-twelfth"></div>
-			<p class="small"><em>* Funding for projects lacking a date is not shown on graph. See table for details.</em></p>
+			<p class="small"><em>* Data source: Great Lakes Restoration Database (GLRD).<br>Funding for projects lacking a date is not shown on graph. See table for details.</em></p>
           </div>
         </div>
 
@@ -577,6 +578,6 @@
 <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
 <script src="https://unpkg.com/esri-leaflet@2.0.6"></script>
 <!-- <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.standalone.js'></script>
- --><script type="text/javascript" src="bundle.min.js"></script>    
+ --><script type="text/javascript" src="bundle.js"></script>    
 </body>
 </html>
