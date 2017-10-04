@@ -62040,16 +62040,29 @@ function summarizeWetlands (ractive, inKeyPath, outKeyPath, ibiScoreField, acres
   //   return sum + d.sum;
   // }, 0);
 
-  ractive.set(outKeyPath+'.wetlandpts', projectsSummary);  
+  /* This bit sorts projectsSummary into a stable logical IBI class order before it gets sent to "wetlandpts", which is what gets sent to the table */
+  var ibiTableOrder = ["Very Low", "Low", "Medium", "High", "N/A", "Total"];
+  projectsSummary = _.sortBy(projectsSummary, function(obj) {
+	  return _.indexOf(ibiTableOrder, obj.ibi_class);
+  });
+  
+  ractive.set(outKeyPath+'.wetlandpts', projectsSummary);  //This ultimately is what gets sent to the IBI table (see the HTML)
 
 
-  var wetlands_ibi = ractive.get('derivedData.wetlandpts');   
+  var wetlands_ibi = ractive.get('derivedData.wetlandpts')
+  
+  /* Make sure IBI classes always appear in graph in same logical order, not getting randomly shuffled around all the time (& still keep "Total" out of graph) */
+  _.remove(wetlands_ibi, {ibi_class: "Total"});							//Specifically drop object w/ IBI class "Total" from array of IBI objects grouped by IBI class
+  var ibiOrder = ["Very Low", "Low", "Medium", "High", "N/A"];			//Order the array of IBI objects grouped by IBI class such that IBI classes are in a specific fixed order
+  wetlands_ibi = _.sortBy(wetlands_ibi, function(obj) {
+	  return _.indexOf(ibiOrder, obj.ibi_class);
+  });
 
   // IBI per year bar chart
 
-  var ibi_class = _(wetlands_ibi).map('ibi_class').dropRight(1).value();
+  var ibi_class = _(wetlands_ibi).map('ibi_class')/*.dropRight(1)*/.value(); //No need for that .dropRight(1) bit, since purpose originally was to drop "Total" so it doesn't go into graph
   //var ibi_count = _(wetlands_ibi).map('count').dropRight(2).value(); 
-  var ibi_acres = _(wetlands_ibi).map('acresSum').dropRight(1).value(); 
+  var ibi_acres = _(wetlands_ibi).map('acresSum')/*.dropRight(1)*/.value(); 
 
   new Chartist.Bar('#graph-wetlands-ibi', {
     labels: ibi_class,
@@ -62396,7 +62409,7 @@ module.exports = {
 }
 
 },{"lodash":17}],37:[function(require,module,exports){
-var projectsURL = 'https://dmajka.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT * FROM wetlands_1'; 
+var projectsURL = 'https://dmajka.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT * FROM wetlands_1'; /* This query appears no longer to be an active part of the code */
 
 // var inputData = {
 //   projects: {
@@ -62412,7 +62425,7 @@ var projectsURL = 'https://dmajka.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT
 // };
 
 var projects = {
-  url: 'https://dmajka.carto.com/api/v2/sql?format=GeoJSON&q=SELECT * FROM wetlands',
+  url: 'https://dmajka.carto.com/api/v2/sql?format=GeoJSON&q=SELECT * FROM wetlands', /* This is the active query bringing projects in from CARTO */ /* NOTE: "wetlands_1" is unsynced w/ GLI, "wetlands" is SYNCED */
   addToMap: 'yes',
   id: 'imdsprojects'
 };
