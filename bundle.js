@@ -62425,7 +62425,7 @@ var projectsURL = 'https://dmajka.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT
 // };
 
 var projects = {
-  url: 'https://dmajka.carto.com/api/v2/sql?format=GeoJSON&q=SELECT * FROM wetlands', /* This is the active query bringing projects in from CARTO */ /* NOTE: "wetlands_1" is unsynced w/ GLI, "wetlands" is SYNCED */
+  url: 'https://dmajka.carto.com/api/v2/sql?format=GeoJSON&q=SELECT * FROM wetlands_1', /* This is the active query bringing projects in from CARTO */ /* NOTE: "wetlands_1" is unsynced w/ GLI, "wetlands" is SYNCED */
   addToMap: 'yes',
   id: 'imdsprojects'
 };
