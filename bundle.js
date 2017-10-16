@@ -62065,9 +62065,9 @@ function summarizeWetlands (ractive, inKeyPath, outKeyPath, ibiScoreField, acres
 
   // IBI per year bar chart
 
-  var ibi_class = _(wetlands_ibi).map('ibi_class')/*.dropRight(1)*/.value(); //No need for that .dropRight(1) bit, since purpose originally was to drop "Total" so it doesn't go into graph
+  var ibi_class = _(wetlands_ibi).map('ibi_class').dropRight(1).value(); //Originally this was to drop "Total" from graph (now being done 6 lines up), now it's dropping "N/A" from the graph
   //var ibi_count = _(wetlands_ibi).map('count').dropRight(2).value(); 
-  var ibi_acres = _(wetlands_ibi).map('acresSum')/*.dropRight(1)*/.value(); 
+  var ibi_acres = _(wetlands_ibi).map('acresSum').dropRight(1).value(); 
 
   new Chartist.Bar('#graph-wetlands-ibi', {
     labels: ibi_class,
