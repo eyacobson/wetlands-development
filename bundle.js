@@ -61757,6 +61757,9 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
 	  var fundCumul = _(overallData).map('fundingCumul').value();
   }
   
+  //Build array for COMBINED protected + enhanced + restored acres
+  var combinedCumul = _.zipWith(protCumul, enhaCumul, restCumul, _.add);
+  
   /*var year = _(overallData).map('year').dropRight(1).value();
   var prot = _(overallData).map('protectedSum').dropRight(1).value();
   var enha = _(overallData).map('enhancedSum').dropRight(1).value();
@@ -61806,10 +61809,11 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
     }
   };
 
+  
   // Cumulative miles line graph
   new Chartist.Line('#graph-overall-cumul', {
     labels: yearLine,
-    series: [protCumul, enhaCumul, restCumul]
+    series: [protCumul, enhaCumul, restCumul, combinedCumul]
     },
     {
     fullWidth: true,
