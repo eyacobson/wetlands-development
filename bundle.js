@@ -61758,7 +61758,9 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
   }
   
   //Build array for COMBINED protected + enhanced + restored acres
-  var combinedCumul = _.zipWith(protCumul, enhaCumul, restCumul, _.add);
+  var combinedCumul = _.zipWith(protCumul, enhaCumul, restCumul, function(a, b, c) {
+	  return a + b + c;
+  });
   
   /*var year = _(overallData).map('year').dropRight(1).value();
   var prot = _(overallData).map('protectedSum').dropRight(1).value();
