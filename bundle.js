@@ -61758,6 +61758,8 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
 	  var combinedCumul = _(overallData).map('totalCumul').value();
   }
   
+  var goalSeries = [null, null, null, null, null, null, null, null, null, null, null, null, null, 7000, 15000, 30000];
+  
   /*var year = _(overallData).map('year').dropRight(1).value();
   var prot = _(overallData).map('protectedSum').dropRight(1).value();
   var enha = _(overallData).map('enhancedSum').dropRight(1).value();
@@ -61811,7 +61813,7 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
   // Cumulative miles line graph
   new Chartist.Line('#graph-overall-cumul', {
     labels: yearLine,
-    series: [protCumul, enhaCumul, restCumul, combinedCumul]
+    series: [protCumul, enhaCumul, restCumul, combinedCumul, goalSeries]
     },
     {
     fullWidth: true,
