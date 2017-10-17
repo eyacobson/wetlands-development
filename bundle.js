@@ -61676,8 +61676,7 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
 	}, 0);
 
     //ractive.set(outKeyPath+'.overallSummary', _.sortBy(yearSummary, 'year'));
-    ractive.set(outKeyPath+'.overallSummary', yearSummary);     
-
+    ractive.set(outKeyPath+'.overallSummary', yearSummary);
   }  
 
   function summarizeByMetric () {
@@ -61722,7 +61721,7 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
   var restoredData = ractive.get('derivedData.acres_of_coastal_wetlands_restored');
   var enhancedData = ractive.get('derivedData.acres_of_coastal_wetlands_enhanced');
   var fundingData = ractive.get('derivedData.funding_i');
-  var overallData = ractive.get('derivedData.overallSummary');  
+  var overallData = ractive.get('derivedData.overallSummary');
 
   // Now loop through and tally up each metric by year
 
@@ -61743,6 +61742,7 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
 	  var enhaCumul = _(overallData).map('enhancedCumul').dropRight(1).value();
 	  var restCumul = _(overallData).map('restoredCumul').dropRight(1).value();
 	  var fundCumul = _(overallData).map('fundingCumul').dropRight(1).value();
+	  var combinedCumul = _(overallData).map('totalCumul').dropRight(1).value();
   } else {
 	  var year = _(overallData).map('year').value();
 	  var prot = _(overallData).map('protectedSum').value();
@@ -61755,12 +61755,8 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
 	  var enhaCumul = _(overallData).map('enhancedCumul').value();
 	  var restCumul = _(overallData).map('restoredCumul').value();
 	  var fundCumul = _(overallData).map('fundingCumul').value();
+	  var combinedCumul = _(overallData).map('totalCumul').value();
   }
-  
-  //Build array for COMBINED protected + enhanced + restored acres
-  var combinedCumul = _.zipWith(protCumul, enhaCumul, restCumul, function(a, b, c) {
-	  return a + b + c;
-  });
   
   /*var year = _(overallData).map('year').dropRight(1).value();
   var prot = _(overallData).map('protectedSum').dropRight(1).value();

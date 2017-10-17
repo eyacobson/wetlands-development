@@ -238,9 +238,10 @@
 
               <div id="graph-overall-legend-bar">
                 <ul class="list list-inline">
-                  <li><span class="legend-block protected"></span>Protected ({{sumBy(derivedData.overallSummary, 'protectedSum')}} ac)</li>
+                  <li><span class="legend-block protected"></span>Protected ({{sumBy(derivedData.overallSummary, 'protectedSum')}} ac)</li> <!-- Legend acres DO include acres for N/A years -->
                   <li><span class="legend-block enhanced"></span>Enhanced ({{sumBy(derivedData.overallSummary, 'enhancedSum')}} ac) </li>
-                  <li><span class="legend-block restored"></span>Restored ({{sumBy(derivedData.overallSummary, 'restoredSum')}} ac)</li>                  
+                  <li><span class="legend-block restored"></span>Restored ({{sumBy(derivedData.overallSummary, 'restoredSum')}} ac)</li>
+				  <li><span class="legend-block combined"></span>Combined ({{sumBy(derivedData.overallSummary, 'totalSum')}} ac)</li>
               </div>
               <p class="small"><em>* Data source: Great Lakes Restoration Database (GLRD).<br>Additional acres conserved but lacking a date  are not shown on graph. See table for details.</em></p>
 
