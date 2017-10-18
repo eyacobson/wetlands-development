@@ -301,7 +301,7 @@
 <!--               <li><strong>Show: </strong></li> -->
 <!--               <li class="active"><a href="#graph-funding-peryear-tab" role="tab" data-toggle="tab" on-click='graph-change' >Per Year</a></li> -->
 <!--               <li><a href="#graph-funding-cumul-tab" role="tab" data-toggle="tab" on-click='graph-change' >Cumulative</a></li> -->
-              <li>Avg IBI: {{findBy(derivedData.wetlandpts, 'ibi_class', 'Total', 'avg')}}</li>
+              <li>Avg IBI: {{findBy(derivedData.wetlandpts, 'ibi_class', 'Total', 'avg')}}</li> <!-- BTW this is causing severe lag under certain use patterns (I think it's this, anyway) & generates a weird JS error -->
               <li>Coastal Wetlands: {{inputData.wetlandpts.markers.inBounds.length}}</li>
             </ul>
           </div>

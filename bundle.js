@@ -61811,7 +61811,7 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
 
   
   // Cumulative miles line graph
-  new Chartist.Line('#graph-overall-cumul', {
+  var acresCumulChart = new Chartist.Line('#graph-overall-cumul', {
     labels: yearLine,
     series: [protCumul, enhaCumul, restCumul, combinedCumul, goalSeries]
     },
@@ -61829,6 +61829,13 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
       }
     } 
   });
+  
+  if (yearLine[yearLine.length - 1] !== "2017") {
+	  acresCumulChart.update({
+		  labels: yearLine,
+		  series: [protCumul, enhaCumul, restCumul, combinedCumul]
+	  });
+  }
   
   new Chartist.Bar('#graph-funding-peryear', {
      labels: yearLine,
