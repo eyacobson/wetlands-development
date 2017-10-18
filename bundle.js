@@ -61813,7 +61813,7 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
   // Cumulative miles line graph
   new Chartist.Line('#graph-overall-cumul', {
     labels: yearLine,
-    series: [protCumul, enhaCumul, restCumul, combinedCumul, goalSeries]
+    series: [protCumul, enhaCumul, restCumul, combinedCumul]
     },
     {
     fullWidth: true,
