@@ -61633,11 +61633,17 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
 
 
       /*if (totalSum > 0 ) {*/
-        if (key === 'undefined') {
-          yearSummary.push({'year': 'N/A', 'projects': yearArray.length,'protectedSum': _.round(protectedSum, 1), 'restoredSum': _.round(restoredSum, 1), 'enhancedSum': _.round(enhancedSum, 1),'totalSum': _.round(totalSum, 1), 'fundingSum': fundingSum, 'fundingAvg': fundingAvg});  
-        } else {
-          yearSummary.push({'year': key, 'projects': yearArray.length,'protectedSum': _.round(protectedSum, 1), 'restoredSum': _.round(restoredSum, 1), 'enhancedSum': _.round(enhancedSum, 1),'totalSum': _.round(totalSum, 1), 'fundingSum': fundingSum, 'fundingAvg': fundingAvg});           
-        }
+        if (key === 'undefined') { /* The many 'if' statements are to fit in annual goals -- these goals will never change */
+          yearSummary.push({'year': 'N/A', 'goal': null, 'projects': yearArray.length,'protectedSum': _.round(protectedSum, 1), 'restoredSum': _.round(restoredSum, 1), 'enhancedSum': _.round(enhancedSum, 1),'totalSum': _.round(totalSum, 1), 'fundingSum': fundingSum, 'fundingAvg': fundingAvg});  
+        } else if (key === '2015') {
+          yearSummary.push({'year': key, 'goal': 7000, 'projects': yearArray.length,'protectedSum': _.round(protectedSum, 1), 'restoredSum': _.round(restoredSum, 1), 'enhancedSum': _.round(enhancedSum, 1),'totalSum': _.round(totalSum, 1), 'fundingSum': fundingSum, 'fundingAvg': fundingAvg});           
+        } else if (key === '2016') {
+		  yearSummary.push({'year': key, 'goal': 15000, 'projects': yearArray.length,'protectedSum': _.round(protectedSum, 1), 'restoredSum': _.round(restoredSum, 1), 'enhancedSum': _.round(enhancedSum, 1),'totalSum': _.round(totalSum, 1), 'fundingSum': fundingSum, 'fundingAvg': fundingAvg});
+		} else if (key === '2017') {
+		  yearSummary.push({'year': key, 'goal': 30000, 'projects': yearArray.length,'protectedSum': _.round(protectedSum, 1), 'restoredSum': _.round(restoredSum, 1), 'enhancedSum': _.round(enhancedSum, 1),'totalSum': _.round(totalSum, 1), 'fundingSum': fundingSum, 'fundingAvg': fundingAvg});	
+		} else {
+		  yearSummary.push({'year': key, 'goal': null, 'projects': yearArray.length,'protectedSum': _.round(protectedSum, 1), 'restoredSum': _.round(restoredSum, 1), 'enhancedSum': _.round(enhancedSum, 1),'totalSum': _.round(totalSum, 1), 'fundingSum': fundingSum, 'fundingAvg': fundingAvg});	
+		}
       /*};*/
     }
 
@@ -61743,6 +61749,7 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
 	  var restCumul = _(overallData).map('restoredCumul').dropRight(1).value();
 	  var fundCumul = _(overallData).map('fundingCumul').dropRight(1).value();
 	  var combinedCumul = _(overallData).map('totalCumul').dropRight(1).value();
+	  var goalSeries = _(overallData).map('goal').dropRight(1).value();
   } else {
 	  var year = _(overallData).map('year').value();
 	  var prot = _(overallData).map('protectedSum').value();
@@ -61756,9 +61763,8 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
 	  var restCumul = _(overallData).map('restoredCumul').value();
 	  var fundCumul = _(overallData).map('fundingCumul').value();
 	  var combinedCumul = _(overallData).map('totalCumul').value();
+	  var goalSeries = _(overallData).map('goal').value();			/* Can't just hardcode goalSeries, b/c the array of years to build it against needs to come in naturally via the data */
   }
-  
-  var goalSeries = [null, null, null, null, null, null, null, null, null, null, null, null, null, 7000, 15000, 30000];
   
   /*var year = _(overallData).map('year').dropRight(1).value();
   var prot = _(overallData).map('protectedSum').dropRight(1).value();
