@@ -61830,7 +61830,7 @@ function summarizeByYear (ractive, inKeyPath, outKeyPath, yearField, sumFields) 
     } 
   });
   
-  if (yearLine[yearLine.length - 1] !== "2017") {
+  if (yearLine.length < 16) {
 	  acresCumulChart.update({
 		  labels: yearLine,
 		  series: [protCumul, enhaCumul, restCumul, combinedCumul]
